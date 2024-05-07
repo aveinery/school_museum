@@ -1,21 +1,22 @@
-import models from "../models/models.js"
-
-import { v4 as uuidv4 } from "uuid"
+import { Document } from "../models/models.js"
 import path from "path"
 import ApiError from "../error/apiError.js"
+import { __dirname } from "../index.js"
+import { unlink } from "fs"
+import { error } from "console"
 
 class DocumentController {
   async create(req, res, next) {
     try {
       const { userId } = req.body
-      const { uploadDocument } = req.file
+      const { uploadDocument } = req.files
 
-      let url = `${Date.now()}-${file.originalname}`
-      let name = req.file.originalname
+      const name = uploadDocument.name
+      const url = `${Date.now()}-${name}`
 
       uploadDocument.mv(path.resolve(__dirname, "..", "static", url))
 
-      const document = await models.Document.create({ url, name, userId })
+      const document = await Document.create({ url, name, userId })
 
       return res.json(document)
     } catch (e) {
@@ -23,9 +24,30 @@ class DocumentController {
     }
   }
 
-  async getAll(req, res) {}
+  async getAll(req, res) {
+    const documents = await Document.findAll()
+    return res.json(documents)
+  }
 
-  async delete(req, res) {}
+  async delete(req, res, next) {
+    try {
+      const { id } = req.params
+      const document = await Document.findOne({ where: { id } })
+      console.log(req.params)
+      console.log(document)
+
+      if (document) {
+        await unlink(
+          path.resolve(__dirname, "..", "static", document.dataValues.url)
+        )
+      }
+
+      await Document.destroy({ where: { id } })
+      return res.json("udalilos")
+    } catch (e) {
+      next(ApiError.badRequest(e.message))
+    }
+  }
 }
 
 const documentController = new DocumentController()
