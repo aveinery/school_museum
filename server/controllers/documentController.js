@@ -1,55 +1,51 @@
-import { Document } from "../models/models.js"
-import path from "path"
-import ApiError from "../error/apiError.js"
-import { __dirname } from "../index.js"
-import { unlink } from "fs"
-import { error } from "console"
+import path from 'path';
+import { unlink } from 'fs';
+import ApiError from '../error/apiError.js';
+import { Document } from '../models/models.js';
+import { __dirname } from '../index.js';
+import { saveFile } from '../utils/saveFile.js';
+import imageController from './imageController.js';
+import { staticPath } from '../index.js';
+import { deleteFile } from '../utils/deleteFile.js';
 
 class DocumentController {
   async create(req, res, next) {
     try {
-      const { userId } = req.body
-      const { uploadDocument } = req.files
+      const { userId } = req.user;
+      const { uploadDocument } = req.files;
+      const { name } = uploadDocument;
 
-      const name = uploadDocument.name
-      const url = `${Date.now()}-${name}`
+      const { url } = saveFile(uploadDocument, saveUrl);
+      const document = await Document.create({ url, name, userId });
 
-      uploadDocument.mv(path.resolve(__dirname, "..", "static", url))
-
-      const document = await Document.create({ url, name, userId })
-
-      return res.json(document)
+      return res.json(document);
     } catch (e) {
-      next(ApiError.badRequest(e.message))
+      next(ApiError.badRequest(e.message));
     }
   }
 
-  async getAll(req, res) {
-    const documents = await Document.findAll()
-    return res.json(documents)
+  async getAll(_, res) {
+    const documents = await Document.findAll();
+    return res.json(documents);
   }
 
   async delete(req, res, next) {
     try {
-      const { id } = req.params
-      const document = await Document.findOne({ where: { id } })
-      console.log(req.params)
-      console.log(document)
+      const { id } = req.params;
+      const document = await Document.findOne({ where: { id } });
 
       if (document) {
-        await unlink(
-          path.resolve(__dirname, "..", "static", document.dataValues.url)
-        )
+        deleteFile(document.dataValues.url);
       }
 
-      await Document.destroy({ where: { id } })
-      return res.json("udalilos")
+      await Document.destroy({ where: { id } });
+      return res.json({ message: 'Success' });
     } catch (e) {
-      next(ApiError.badRequest(e.message))
+      next(ApiError.badRequest(e.message));
     }
   }
 }
 
-const documentController = new DocumentController()
+const documentController = new DocumentController();
 
-export default documentController
+export default documentController;

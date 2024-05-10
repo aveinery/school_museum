@@ -1,10 +1,12 @@
-import { Router } from "express"
-import documentController from "../controllers/documentController.js"
+import { Router } from 'express';
+import documentController from '../controllers/documentController.js';
+import { authMiddleware } from '../middleware/AuthMiddleware.js';
 
-const router = new Router()
+const router = new Router();
 
-router.post("/", documentController.create)
-router.get("/", documentController.getAll)
-router.delete("/:id", documentController.delete)
+router.post('/', authMiddleware, documentController.create);
+router.get('/', documentController.getAll);
+router.delete('/:id', authMiddleware, documentController.delete);
 
-export default router
+export default router;
+
