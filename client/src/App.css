@@ -1,0 +1,14 @@
+:root {
+  --blue: #6f9cce;
+  --dark-blue: #2261a6;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus-visible {
+  color: var(--blue);
+  outline: 2px solid var(--blue);
+}
+

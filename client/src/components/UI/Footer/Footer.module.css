@@ -1,0 +1,53 @@
+footer {
+  padding: 20px 0 20px 0;
+  width: 100vw;
+  background-color: aquamarine;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footerColumn {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.communities {
+  align-items: end;
+}
+
+.communitiesText {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.imgLogo {
+  width: 20px;
+  height: 20px;
+}
+
+a .imgLogo:hover {
+  fill: var(--dark-blue);
+}
+
+.organizationName {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--dark-blue);
+  margin-bottom: 10px;
+}
+
+.contacts {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen {
+}

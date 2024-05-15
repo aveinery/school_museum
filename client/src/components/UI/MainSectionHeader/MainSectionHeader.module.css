@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Yiggivoo';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../../../assets/fonts/Yiggivoo.woff') format('.woff'),
+    url('../../../assets/fonts/Yiggivoo.ttf') format('.ttf'),
+    url('../../../assets/fonts/Yiggivoo.woff2') format('.woff2');
+}
+
+.sectionHeader {
+  padding: 100px 0;
+  width: 100vw;
+  background-image: url('../../../assets/images/background-1.webp');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.textHeader {
+  font-family: 'Yiggivoo';
+  font-size: 36px;
+  color: white;
+}
+
+.firstStroke {
+  text-align: start;
+}
+
+.secondStroke {
+  text-align: end;
+}
