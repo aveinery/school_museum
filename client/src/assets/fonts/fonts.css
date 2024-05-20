@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'PT Sans Caption', sans-serif;
+  font-family: 'PT Sans Caption';
   font-style: normal;
   font-weight: 400;
   src: url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 }
 
 @font-face {
-  font-family: 'PT Sans Caption Bold', sans-serif;
+  font-family: 'PT Sans Caption Bold';
   font-style: normal;
   font-weight: 700;
   src: url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@700&display=swap');
@@ -16,6 +16,6 @@
   font-family: 'Yiggivoo';
   font-style: italic;
   font-weight: 400;
-  src: local ('Yiggivoo Unicode Regular 400 Italic'), url('./Yiggivoo.woff') format('.woff'),
-    url('./Yiggivoo.ttf') format('.ttf'), url('./Yiggivoo.woff2') format('.woff2');
+  src: local ('Yiggivoo Unicode Regular 400 Italic'), url('./Yiggivoo.woff2') format('woff2'),
+    url('./Yiggivoo.woff') format('woff'), url('./Yiggivoo.ttf') format('ttf');
 }

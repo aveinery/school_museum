@@ -1,15 +1,6 @@
-@font-face {
-  font-family: 'Yiggivoo';
-  font-style: italic;
-  font-weight: 400;
-  src: url('../../../assets/fonts/Yiggivoo.woff') format('.woff'),
-    url('../../../assets/fonts/Yiggivoo.ttf') format('.ttf'),
-    url('../../../assets/fonts/Yiggivoo.woff2') format('.woff2');
-}
-
 .sectionHeader {
   padding: 100px 0;
-  width: 100vw;
+  width: 100%;
   background-image: url('../../../assets/images/background-1.webp');
   background-repeat: no-repeat;
   background-size: 100%;

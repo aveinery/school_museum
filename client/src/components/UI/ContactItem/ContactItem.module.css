@@ -1,0 +1,23 @@
+.contactItem {
+  width: 400px;
+  height: 90px;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.itemDescription {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contactHeader {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contactImg {
+  align-self: flex-start;
+}

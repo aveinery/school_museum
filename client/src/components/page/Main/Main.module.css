@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.infoSection {
+  width: 100%;
+  background-color: #e3e3e3;
+}

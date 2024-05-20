@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './MainInfoItem.module.css';
 
-const MainInfoItem = ({ title, src, alt }) => {
+const MainInfoItem = ({ src, alt, children }) => {
   return (
     <div className={styles.infoItem}>
-      <img src={src} alt={alt} />
-      <p>{title}</p>
+      <img className={styles.infoImg} src={src} alt={alt} />
+      <div className={styles.verticalLine}></div>
+      <div className={styles.infoDecsription}>{children}</div>
     </div>
   );
 };

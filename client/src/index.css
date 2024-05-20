@@ -12,7 +12,7 @@ h6 {
   all: unset;
 
   box-sizing: border-box;
-  font-family: 'PT Sans Caption';
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 p {

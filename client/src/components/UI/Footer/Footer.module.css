@@ -1,7 +1,8 @@
 footer {
   padding: 20px 0 20px 0;
-  width: 100vw;
-  background-color: aquamarine;
+  width: 100%;
+  background-color: white;
+  box-shadow: inset 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -33,7 +34,7 @@ footer {
   height: 20px;
 }
 
-a .imgLogo:hover {
+.imgLogo:hover {
   fill: var(--dark-blue);
 }
 

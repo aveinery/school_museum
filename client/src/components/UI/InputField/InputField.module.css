@@ -1,0 +1,14 @@
+.inputField {
+  background-color: var(--light-gray);
+  padding: 15px;
+  margin: 0 10px 30px;
+  font-size: 16px;
+}
+
+::-webkit-input-placeholder {
+  color: var(--gray);
+}
+
+.inputField:focus {
+  border: 1px solid var(--dark-blue);
+}

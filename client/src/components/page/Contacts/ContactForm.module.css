@@ -1,0 +1,29 @@
+.contactsInputs {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactFormTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--dark-blue);
+  display: block;
+  margin: 10px 0 40px;
+  text-align: center;
+}
+
+.buttonContacts {
+  background-color: var(--dark-blue);
+  color: white;
+  width: 150px;
+  align-self: center;
+  text-align: center;
+  padding: 10px 15px;
+}
+.buttonContacts:hover {
+  cursor: pointer;
+}
+.buttonContacts:focus {
+  background-color: var(--blue);
+}

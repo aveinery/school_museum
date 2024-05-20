@@ -1,10 +1,23 @@
+@import url('./assets/fonts/fonts.css');
+
 :root {
   --blue: #6f9cce;
   --dark-blue: #2261a6;
+  --gray: #9d9d9d;
+  --light-gray: #f2f2f2;
+}
+
+body {
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: var(--blue);
 }
 
 a:focus-visible {

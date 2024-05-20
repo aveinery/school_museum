@@ -1,0 +1,52 @@
+.sectionContacts {
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contactsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.vk {
+  display: block;
+}
+
+.contactsHeader {
+  display: block;
+  margin: 50px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.column:nth-last-child() {
+  margin-bottom: 0;
+}
+
+.contactsButton {
+  color: var(--dark-blue);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 250px;
+  padding: 10px 15px;
+  border: 1px solid var(--dark-blue);
+
+  transition: background-color, 0.3s;
+}
+
+.contactsButton:hover {
+  cursor: pointer;
+  color: white;
+  background-color: var(--dark-blue);
+}
+
+.contactsButton:focus {
+  color: white;
+  background-color: var(--dark-blue);
+}

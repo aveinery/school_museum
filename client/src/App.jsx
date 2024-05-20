@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter.jsx';
@@ -12,8 +9,6 @@ function App() {
     <BrowserRouter>
       <Header />
       <AppRouter />
-      <div>dsds</div>
-      <a href="dfsf">fdfss</a>
       <Footer />
     </BrowserRouter>
   );
