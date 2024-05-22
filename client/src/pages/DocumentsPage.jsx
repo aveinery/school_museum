@@ -1,7 +1,8 @@
 import React from 'react';
+import Documents from '../components/page/Documents/Documents';
 
 const DocumentsPage = () => {
-  return <div>Documents</div>;
+  return <Documents></Documents>;
 };
 
 export default DocumentsPage;

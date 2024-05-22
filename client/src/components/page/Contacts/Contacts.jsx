@@ -63,14 +63,11 @@ const Contacts = () => {
 
             <div className={styles.column}>
               <button className={styles.contactsButton} onClick={openModal}>
-                {/* <img src={registrationLogo} className={styles.imgLogo} alt="Иконка подачи заявки" /> */}
                 <span>Подать заявку на экскурсию</span>
               </button>
 
               <Modal open={isOpen} onClose={closeModal}>
-                <form>
-                  <ContactForm onClose={closeModal}></ContactForm>
-                </form>
+                <ContactForm onClose={closeModal}></ContactForm>
               </Modal>
             </div>
           </div>

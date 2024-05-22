@@ -35,6 +35,7 @@
   text-align: center;
   width: 250px;
   padding: 10px 15px;
+  margin-bottom: 50px;
   border: 1px solid var(--dark-blue);
 
   transition: background-color, 0.3s;

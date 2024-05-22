@@ -68,3 +68,7 @@
   cursor: pointer;
   border: 1px solid var(--blue);
 }
+
+.errorMessage {
+  margin: 30px 10px 0;
+}

@@ -1,0 +1,89 @@
+.newsContainer {
+  padding: 70px 0;
+  margin: 0 70px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.textNews {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+.dateNews {
+  color: var(--gray);
+  font-size: 15px;
+}
+
+.titleNews {
+  color: var(--dark-blue);
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.imgNews {
+  object-fit: cover;
+  width: 400px;
+  height: auto;
+}
+
+.news:last-child .horizontalLine {
+  display: none;
+}
+
+.horizontalLine {
+  margin: 0 auto;
+  border-top: 1px solid var(--gray);
+  width: 90%;
+}
+
+.btnDelete {
+  position: absolute;
+  right: 5px;
+  top: 35px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.btnEdit {
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.btnDelete:focus,
+.btnEdit:focus {
+  outline: 2px solid var(--blue);
+}
+
+.btnAndTxt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.showNews {
+  display: block;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 1px solid var(--dark-blue);
+  cursor: pointer;
+  align-self: self-start;
+  color: var(--dark-blue);
+
+  transition: background-color, 0.2s;
+}
+
+.showNews:hover,
+.showNews:focus {
+  background-color: var(--dark-blue);
+  color: white;
+}

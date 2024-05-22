@@ -6,9 +6,9 @@ class FileController {
   async create(params) {
     try {
       const { fileUpload, newsId } = params;
-      const { url, filename } = saveFile(fileUpload);
+      const { url, name } = saveFile(fileUpload);
 
-      const file = await File.create({ url, name: filename, newsId });
+      const file = await File.create({ url, name, newsId });
 
       return file;
     } catch (error) {

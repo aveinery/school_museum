@@ -11,11 +11,11 @@ import { deleteFile } from '../utils/deleteFile.js';
 class DocumentController {
   async create(req, res, next) {
     try {
-      const { userId } = req.user;
+      const { userId } = req;
       const { uploadDocument } = req.files;
-      const { name } = uploadDocument;
+      console.log(uploadDocument);
+      const { url, name } = saveFile(uploadDocument);
 
-      const { url } = saveFile(uploadDocument, saveUrl);
       const document = await Document.create({ url, name, userId });
 
       return res.json(document);

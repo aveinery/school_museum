@@ -9,5 +9,5 @@ export const saveFile = (file) => {
 
   file.mv(saveUrl);
 
-  return { url: saveUrl, filename };
+  return { url: filename, name };
 };

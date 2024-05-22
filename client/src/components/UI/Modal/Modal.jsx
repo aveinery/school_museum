@@ -12,7 +12,6 @@ const Modal = ({ children, open, onClose }) => {
       }
     };
     window.addEventListener('keydown', close);
-    console.log('dfdf', open);
     return () => window.removeEventListener('keydown', close);
   }, []);
 

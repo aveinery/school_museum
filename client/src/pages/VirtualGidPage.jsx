@@ -1,7 +1,8 @@
 import React from 'react';
+import Gid from '../components/page/Gid/Gid';
 
 const VirtualGidPage = () => {
-  return <div>Virtual Gid</div>;
+  return <Gid></Gid>;
 };
 
 export default VirtualGidPage;

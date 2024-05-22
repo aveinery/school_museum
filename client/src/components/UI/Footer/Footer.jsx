@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CONTACTS_ROUTE } from '../../../utils/consts';
 import vkLogo from '../../../assets/images/vk-logo.svg';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
+import { Context } from '../../../main';
+import { observer } from 'mobx-react-lite';
 
-const Footer = () => {
+const Footer = observer(() => {
+  const { user } = useContext(Context);
+
+  const logOut = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+    localStorage.clear();
+  };
+
   return (
     <footer>
       <div className={styles.container}>
@@ -19,7 +29,9 @@ const Footer = () => {
             </a>
           </p>
           <p>Dmit_mou1@mosreg</p>
-          <p>141800, Российская Федерация, Московская область, г. Дмитров, улица Школьная, дом 11, корпус 1</p>
+          <address>
+            141800, Российская Федерация, Московская область, г. Дмитров, улица Школьная, дом 11, корпус 1
+          </address>
         </div>
         <div className={styles.footerColumn}>
           <Link to={CONTACTS_ROUTE} className={styles.contacts}>
@@ -34,8 +46,18 @@ const Footer = () => {
           </a>
         </div>
       </div>
+      {user.IsAuth ? (
+        <div className={styles.footerExit}>
+          <div className={styles.horizontalLine}></div>
+          <button className={styles.exitBtn} onClick={() => logOut()}>
+            Выйти
+          </button>
+        </div>
+      ) : (
+        ''
+      )}
     </footer>
   );
-};
+});
 
 export default Footer;

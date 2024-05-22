@@ -2,14 +2,20 @@
   font-family: 'PT Sans Caption';
   font-style: normal;
   font-weight: 400;
-  src: url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+  src: url('./PTSansCaption/Regular/PTSans-Caption.woff2') format('woff2'),
+    url('./PTSansCaption/Regular/PTSans-Caption.woff') format('woff'),
+    url('./PTSansCaption/Regular/PTSans-Caption.ttf') format('ttf'),
+    url('./PTSansCaption/Regular/PTSans-Caption.eot') format('eot');
 }
 
 @font-face {
   font-family: 'PT Sans Caption Bold';
   font-style: normal;
   font-weight: 700;
-  src: url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@700&display=swap');
+  src: url('./PTSansCaption/Bold/PTSans-CaptionBold.woff2') format('woff2'),
+    url('./PTSansCaption/Bold/PTSans-CaptionBold.woff') format('woff'),
+    url('./PTSansCaption/Bold/PTSans-CaptionBold.ttf') format('ttf'),
+    url('./PTSansCaption/Bold/PTSans-CaptionBold.eot') format('eot');
 }
 
 @font-face {

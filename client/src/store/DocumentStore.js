@@ -2,18 +2,18 @@ import { makeAutoObservable } from 'mobx';
 
 export default class DocumentStore {
   constructor() {
-    this._document = [
-      { id: 1, documentName: 'eddedeww.docx', url: '' },
-      { id: 2, documentName: 'eddedeww.docx', url: '' },
-      { id: 3, documentName: 'eddedeww.docx', url: '' },
+    this._documents = [
+      // { id: 1, documentName: 'eddedeww.docx', url: '' },
+      // { id: 2, documentName: 'eddedeww.docx', url: '' },
+      // { id: 3, documentName: 'eddedeww.docx', url: '' },
     ];
   }
 
-  setDocument() {
-    this._document = document;
+  setDocuments(documents) {
+    this._documents = documents;
   }
 
-  get document() {
-    return this._document;
+  get documents() {
+    return this._documents;
   }
 }
