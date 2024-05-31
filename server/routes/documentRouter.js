@@ -4,7 +4,7 @@ import { authMiddleware } from '../middleware/AuthMiddleware.js';
 
 const router = new Router();
 
-router.post('/', documentController.create);
+router.post('/', authMiddleware, documentController.create);
 router.get('/', documentController.getAll);
 router.delete('/:id', authMiddleware, documentController.delete);
 

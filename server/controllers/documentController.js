@@ -25,7 +25,7 @@ class DocumentController {
   }
 
   async getAll(_, res) {
-    const documents = await Document.findAll();
+    const documents = await Document.findAll({ order: [['id', 'ASC']] });
     return res.json(documents);
   }
 

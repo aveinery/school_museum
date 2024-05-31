@@ -56,16 +56,19 @@ class UserController {
 
       const refreshTokenPayload = getRefreshTokenPayload(refreshToken);
 
+      console.log('test - // refreshTokenPayload', refreshTokenPayload, verifiedUser);
+
       if (refreshTokenPayload && refreshTokenPayload.userId === verifiedUser.userId) {
         const payload = { userId: verifiedUser.userId };
         const token = jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: '3h' });
         const refreshToken = jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: '7d' });
 
         setRefreshToken(refreshToken, verifiedUser.userId);
-        deleteRefreshToken(refreshToken);
 
         res.status(200).send({ token, refreshToken });
       }
+
+      deleteRefreshToken(refreshToken);
 
       res.status(401).send('Invalid refresh token');
     } catch (e) {

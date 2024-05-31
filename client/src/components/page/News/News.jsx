@@ -8,16 +8,24 @@ import EditNewsForm from './EditNewsForm/EditNewsForm';
 import { Context } from '../../../main';
 import { observer } from 'mobx-react-lite';
 import useQueryNews from '../../../hooks/useQueryNews';
+import useDeleteNews from '../../../hooks/useDeleteNews';
+import Spinner from '../../UI/Spinner/Spinner';
 
 const News = observer(() => {
+  const { user } = useContext(Context);
   const { newsStore } = useContext(Context);
 
   const [isOpen, setIsOpen] = useState(false);
   const [whichOpen, setWhichOpen] = useState('');
+  const [idNews, setIdNews] = useState(null);
 
-  const openModal = (nameModal) => {
+  const { deleting, deleteError, handleDelete } = useDeleteNews();
+  const { data, loading, error } = useQueryNews(50);
+
+  const openModal = (nameModal, idNews) => {
     setIsOpen(true);
     setWhichOpen(nameModal);
+    setIdNews(idNews);
   };
 
   const formatDate = (dateString) => {
@@ -27,27 +35,27 @@ const News = observer(() => {
   const closeModal = () => {
     setIsOpen(false);
     setWhichOpen('');
+    setIdNews(null);
   };
-
-  console.log(useQueryNews);
-  const { data, loading, error } = useQueryNews(50);
-
-  if (loading) {
-    return <div>Loading../</div>;
-  }
 
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log(newsStore);
+
   return (
     <section className={styles.sectionNews}>
       <div className={styles.container}>
         <h2 className={styles.title}>Новости музея</h2>
-        <button className={styles.btnAdd} onClick={() => openModal('createNews')}>
-          Добавить новость
-        </button>
+
+        {user.IsAuth ? (
+          <button className={styles.btnAdd} onClick={() => openModal('createNews')}>
+            Добавить новость
+          </button>
+        ) : null}
         <div className={styles.newsContainer}>
+          {loading ? <Spinner /> : null}
+          {deleting ? <Spinner /> : null}
+          {error ? 'Не удалось загрузить новости' : null}
           {newsStore.news.map((newsItem) => (
             <NewsItem
               key={newsItem.id}
@@ -55,43 +63,17 @@ const News = observer(() => {
               src={newsItem.images && newsItem.images.length > 0 ? newsItem.images[0].url : null}
               title={newsItem.title}
               content={newsItem.content}
-              open={openModal}
+              open={(modal) => openModal(modal, newsItem.id)}
               onClose={closeModal}
+              onDelete={() => handleDelete(newsItem.id)}
             ></NewsItem>
           ))}
-          {/* <NewsItem
-            time="2024-05-20"
-            src={image}
-            alt="Фото новости"
-            title="Заголовок"
-            content="Контент новости  тут очен большой текст который должен обрезаться как то по определенному количеству символов"
-            open={openModal}
-            onClose={closeModal}
-          ></NewsItem>
-          <NewsItem
-            time="2024-05-20"
-            src={image}
-            alt="Фото новости"
-            title="Заголовок"
-            content="Контент новости тут очен большой текст который должен обрезаться как то по определенному количеству символов"
-            open={openModal}
-            onClose={closeModal}
-          ></NewsItem>
-          <NewsItem
-            time="2024-05-20"
-            src={image}
-            alt="Фото новости"
-            title="Заголовок"
-            content="Контент новости тут очен большой текст который должен обрезаться как то по определенному количеству символов"
-            open={openModal}
-            onClose={closeModal}
-          ></NewsItem> */}
         </div>
       </div>
 
       <CreateNewsForm open={whichOpen === 'createNews'} onClose={closeModal}></CreateNewsForm>
       <EditNewsForm open={whichOpen === 'editNews'} onClose={closeModal}></EditNewsForm>
-      <NewsModalShow open={whichOpen === 'showNews'} onClose={closeModal}></NewsModalShow>
+      <NewsModalShow open={whichOpen === 'showNews'} onClose={closeModal} idNews={idNews}></NewsModalShow>
     </section>
   );
 });

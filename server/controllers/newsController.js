@@ -28,6 +28,8 @@ class NewsController {
       const { title, datePublication, content, links } = req.body;
       const { files, images } = req.files;
 
+      console.log(req.files);
+
       const newItem = await News.create({ title, date_publication: datePublication, content, userId });
       const newsId = newItem.dataValues.id;
       const needPromises = [];
@@ -36,11 +38,11 @@ class NewsController {
         needPromises.push(linkController.create({ url: link, newsId }));
       }
 
-      for (const file of files) {
+      for (const file of Array.isArray(files) ? files : [files]) {
         needPromises.push(fileController.create({ fileUpload: file, newsId }));
       }
 
-      for (const image of images) {
+      for (const image of Array.isArray(images) ? images : [images]) {
         needPromises.push(imageController.create({ fileUpload: image, newsId }));
       }
 
@@ -60,6 +62,7 @@ class NewsController {
   async getAll(_, res) {
     try {
       const news = await News.findAll({
+        order: [['id', 'DESC']],
         include: includeScheme,
       });
       return res.json(news);

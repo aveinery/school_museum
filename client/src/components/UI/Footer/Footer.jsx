@@ -40,8 +40,10 @@ const Footer = observer(() => {
         </div>
         <div className={`${styles.footerColumn} ${styles.communities}`}>
           <p className={styles.communitiesText}>Сообщества</p>
-          <a href="https://dmou1.edumsko.ru/">Официальный сайт школы</a>
-          <a href="https://vk.com/public131105419">
+          <a href="https://dmou1.edumsko.ru/" target="_blank">
+            Официальный сайт школы
+          </a>
+          <a href="https://vk.com/public131105419" target="_blank">
             <img src={vkLogo} className={styles.imgLogo} alt="Ссылка на сообщество школы ВКонтакте" />
           </a>
         </div>

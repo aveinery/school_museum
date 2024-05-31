@@ -6,10 +6,20 @@
   position: relative;
 }
 
+.news:nth-child(2n) .newsContainer {
+  flex-direction: row-reverse;
+}
+
 .textNews {
   display: flex;
   flex-direction: column;
   margin-right: 50px;
+}
+
+.news:nth-child(2n) .newsContainer .textNews {
+  margin-left: 50px;
+  margin-right: 0;
+  text-align: end;
 }
 
 .dateNews {
@@ -64,6 +74,15 @@
   outline: 2px solid var(--blue);
 }
 
+.news:nth-child(2n) .newsContainer .btnDelete {
+  left: 5px;
+  top: 35px;
+}
+.news:nth-child(2n) .newsContainer .btnEdit {
+  left: 35px;
+  top: 35px;
+}
+
 .btnAndTxt {
   display: flex;
   flex-direction: column;
@@ -80,6 +99,10 @@
   color: var(--dark-blue);
 
   transition: background-color, 0.2s;
+}
+
+.news:nth-child(2n) .newsContainer .showNews {
+  align-self: end;
 }
 
 .showNews:hover,

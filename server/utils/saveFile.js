@@ -4,6 +4,7 @@ import { staticPath } from '../index.js';
 
 export const saveFile = (file) => {
   const name = file.name;
+  console.log(name);
   const filename = `${Date.now()}-${name}`;
   const saveUrl = path.resolve(staticPath, filename);
 

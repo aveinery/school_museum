@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 
+let a = 0;
 export const authMiddleware = (req, res, next) => {
   let token = req.headers.authorization;
   if (!token) return res.status(401).send('Access Denied / Unauthorized request');
@@ -14,6 +15,6 @@ export const authMiddleware = (req, res, next) => {
     req.user = verifiedUser; // {userId: ...}
     next();
   } catch (error) {
-    res.status(400).send('Invalid Token');
+    res.status(401).send('Invalid Token');
   }
 };

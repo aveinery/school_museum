@@ -9,10 +9,9 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-}
-
-.btnDocument:focus {
-  border: 2px dotted var(--blue);
+  flex-wrap: wrap;
+  word-break: break-word;
+  flex-grow: 1;
 }
 
 .btnImg {
@@ -20,12 +19,15 @@
 }
 
 .btnDelete {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  margin-left: 10px;
   cursor: pointer;
+  flex-grow: 0;
 }
 
 .btnDelete:focus {
   outline: 1px solid var(--blue);
+}
+
+.item {
+  display: flex;
 }

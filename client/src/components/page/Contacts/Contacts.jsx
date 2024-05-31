@@ -54,8 +54,10 @@ const Contacts = () => {
                 <p>Dmit_mou1@mosreg.ru</p>
               </ContactItem>
               <ContactItem title="Сообщества" src={communityIcon} alt="Иконка сообществ">
-                <a href="https://dmou1.edumsko.ru/">Официальный сайт школы</a>
-                <a className={styles.vk} href="https://vk.com/public131105419">
+                <a href="https://dmou1.edumsko.ru/" target="_blank">
+                  Официальный сайт школы
+                </a>
+                <a className={styles.vk} href="https://vk.com/public131105419" target="_blank">
                   <img src={vkLogo} className={styles.imgLogo} alt="Ссылка на сообщество школы ВКонтакте" />
                 </a>
               </ContactItem>

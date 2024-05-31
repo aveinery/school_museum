@@ -13,6 +13,14 @@ export default class DocumentStore {
     this._documents = documents;
   }
 
+  addDocument(document) {
+    this._documents.push(document);
+  }
+
+  deleteDocument(id) {
+    this._documents = this._documents.filter((document) => document.id !== id);
+  }
+
   get documents() {
     return this._documents;
   }

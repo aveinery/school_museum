@@ -4,22 +4,27 @@ import DocumentItem from '../../UI/DocumentItem/DocumentItem';
 import { Context } from '../../../main';
 import documentIcon from '../../../assets/images/file-icon.svg';
 import useQueryDocuments from '../../../hooks/useQueryDocuments';
+import useCreateDocument from '../../../hooks/useCreateDocument';
+import useDeleteDocument from '../../../hooks/useDeleteDocument';
+import Spinner from '../../UI/Spinner/Spinner';
+import { observer } from 'mobx-react-lite';
 
-const Documents = () => {
+const Documents = observer(() => {
   const { user } = useContext(Context);
   const { documentStore } = useContext(Context);
 
   const { loading, error } = useQueryDocuments();
+  const { uploading, uploadError, handleFileChange } = useCreateDocument();
+  const { deleting, deleteError, handleDelete } = useDeleteDocument();
 
-  if (loading) {
-    return <div>Loading../</div>;
+  if (uploadError) {
+    alert('не удалось загрузить документ');
   }
 
-  if (error) {
-    return <div>{error.message}</div>;
+  if (deleteError) {
+    return <div>{deleteError}</div>;
   }
 
-  console.log(documentStore);
   return (
     <section className={styles.documentSection}>
       <div className={styles.container}>
@@ -29,29 +34,35 @@ const Documents = () => {
             <form action="" method="" encType="multipart/form-data">
               <label className={styles.documentInput} autoFocus>
                 <img className={styles.inputImg} src={documentIcon} alt="Иконка файла"></img>
-                Выберите документ
-                <input className={styles.input} type="file" onChange={this.form.submit()} name="myFile" />
+                {uploading ? 'Документ загружается...' : 'Выберите документ'}
+                <input
+                  className={styles.input}
+                  type="file"
+                  onChange={handleFileChange}
+                  name="myFile"
+                  accept=".doc,.docx,.xlsx,.pdf,.ppt,.pptx"
+                />
               </label>
             </form>
           ) : (
             ''
           )}
+          {loading ? <Spinner></Spinner> : null}
+          {deleting ? <Spinner /> : null}
+          {error ? 'Не удалось загрузить документы' : null}
           {documentStore.documents.map((document) => (
-            <DocumentItem key={document.id} documentName={document.name} documentUrl={document.url}></DocumentItem>
+            <DocumentItem
+              key={document.id}
+              documentName={document.name}
+              documentUrl={document.url}
+              onDelete={() => handleDelete(document.id)}
+              showDelete={true}
+            ></DocumentItem>
           ))}
-          {/* <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem>
-          <DocumentItem documentName="dsdsd"></DocumentItem> */}
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default Documents;
