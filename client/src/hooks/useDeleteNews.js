@@ -14,6 +14,14 @@ const useDeleteNews = () => {
     try {
       await deleteNews(id);
       newsStore.deleteNews(id);
+
+      if (
+        newsStore.news.length < newsStore.limit &&
+        newsStore.page < Math.ceil(newsStore.totalCount / newsStore.limit)
+      ) {
+        const additionalData = await fetchNews(newsStore.page + 1, newsStore.limit);
+        newsStore.setNews([...newsStore.news, ...additionalData.rows]);
+      }
     } catch (error) {
       setDeleteError(error);
     } finally {

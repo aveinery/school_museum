@@ -5,15 +5,19 @@ import { Context } from '../../../main';
 import deleteIcon from '../../../assets/images/delete-icon-blue.svg';
 import { observer } from 'mobx-react-lite';
 
-const DocumentItem = observer(({ documentName, documentUrl, onDelete, showDelete }) => {
+const DocumentItem = observer(({ documentName, documentUrl, onDelete, showDelete, onNews }) => {
   const { user } = useContext(Context);
-
   return (
     <div className={styles.item}>
-      <a className={styles.btnDocument} href={import.meta.env.VITE_REACT_APP_API_URL + documentUrl} target="_blank">
+      <a
+        className={styles.btnDocument}
+        href={onNews ? documentUrl : import.meta.env.VITE_REACT_APP_API_URL + documentUrl}
+        target="_blank"
+      >
         <img className={styles.btnImg} src={fileIcon} alt="Иконка файла" />
         {documentName}
       </a>
+
       {user.IsAuth && showDelete ? (
         <button className={styles.btnDelete} onClick={onDelete}>
           <img src={deleteIcon} alt="Иконка удаления" />

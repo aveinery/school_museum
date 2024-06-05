@@ -21,7 +21,7 @@ const useCreateDocument = () => {
     try {
       const formData = new FormData();
       formData.append('uploadDocument', file);
-
+      console.log(file.name);
       const response = await createDocuments(formData);
       documentStore.addDocument(response);
     } catch (err) {

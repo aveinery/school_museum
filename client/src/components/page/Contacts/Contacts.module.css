@@ -14,6 +14,10 @@
 }
 
 .vk {
+  display: inline-block;
+}
+
+.link {
   display: block;
 }
 

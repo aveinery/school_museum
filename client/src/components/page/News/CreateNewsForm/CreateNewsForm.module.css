@@ -10,6 +10,11 @@
   align-self: center;
   text-align: center;
   padding: 10px 15px;
+  margin-top: 30px;
+}
+
+.buttonCreate:focus {
+  background-color: var(--blue);
 }
 
 .inputTitle {
@@ -39,14 +44,15 @@
 .addLink {
   margin: 20px 0;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .inputLink {
+  width: 100%;
   padding: 5px;
   border-radius: 5px;
   background-color: var(--light-gray);
-  flex-grow: 1;
 }
 
 .inputLink:focus {
@@ -54,7 +60,8 @@
 }
 
 .btnAddLink {
-  flex-grow: 0;
+  display: flex;
+  align-items: center;
 }
 
 .btnAddLink:focus {
@@ -62,6 +69,7 @@
 }
 
 .link {
+  width: 80%;
   word-wrap: break-word;
 }
 
@@ -71,14 +79,23 @@
   margin-bottom: 10px;
 }
 
+.btnDeleteLink:focus {
+  outline: 1px solid var(--blue);
+}
+
+.btnLinkImg {
+  width: 15px;
+  height: 15px;
+}
+
 .imageContainer {
   position: relative;
 }
 
 .imagePreview {
   object-fit: cover;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 .imagesPreview {
@@ -86,29 +103,20 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btnDeleteImg {
   padding: 5px;
-  top: 15px;
-  right: 15px;
+  top: 5px;
+  right: 5px;
   color: white;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
 }
 
-.documentInput {
-  font-weight: bold;
-  color: var(--blue);
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 4px;
-  border: 2px dotted var(--blue);
-
-  display: flex;
-  align-items: center;
-
-  cursor: pointer;
+.btnDeleteImg:focus {
+  background-color: var(--dark-blue);
 }
 
 .input {
@@ -119,7 +127,25 @@
   margin-right: 20px;
 }
 
-.fileContainer {
+.documentInput {
+  font-weight: bold;
+  color: var(--blue);
+  padding: 10px;
+  margin: 10px 0px 0px;
+  border-radius: 4px;
+  border: 2px dotted var(--blue);
+
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.warning {
+  margin-top: 0px;
+  padding-top: 0px;
+  color: var(--blue);
+  font-size: 13px;
+
+  margin-bottom: 10px;
 }

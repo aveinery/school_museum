@@ -5,20 +5,29 @@ import addIcon from '../../../../assets/images/add.svg';
 import documentIcon from '../../../../assets/images/file-icon.svg';
 import { createNews } from '../../../../http/newsAPI';
 import { Context } from '../../../../main';
-import { observer } from 'mobx-react-lite';
+import DocumentItem from '../../../UI/DocumentItem/DocumentItem';
+import deleteIcon from '../../../../assets/images/delete-icon.svg';
+import {
+  MAX_CONTENT_LENGTH,
+  MAX_FILES,
+  MAX_FILE_SIZE,
+  MAX_IMAGES,
+  MAX_LINKS,
+  MAX_TITLE_LENGTH,
+} from '../../../../utils/consts';
 
 const CreateNewsForm = ({ open, onClose }) => {
   const { newsStore } = useContext(Context);
 
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState(null);
+  const [content, setContent] = useState(null);
   const [links, setLinks] = useState([]);
   const [newLink, setNewLink] = useState('');
   const [images, setImages] = useState([]);
   const [documents, setDocuments] = useState([]);
 
   const handleAddLink = () => {
-    if (newLink.trim()) {
+    if (newLink.trim() && links.length < MAX_LINKS) {
       setLinks([...links, newLink]);
       setNewLink('');
     }
@@ -29,14 +38,27 @@ const CreateNewsForm = ({ open, onClose }) => {
   };
 
   const handleImageUpload = (e) => {
-    setImages([...images, ...e.target.files]);
+    const files = Array.from(e.target.files);
+    const validFiles = files.filter((file) => file.size <= MAX_FILE_SIZE);
+
+    if (validFiles.length + images.length <= MAX_IMAGES) {
+      setImages([...images, ...validFiles]);
+    }
+
+    e.target.value = '';
   };
   const handleRemoveImage = (index) => {
     setImages(images.filter((_, i) => i !== index));
   };
 
   const handleDocumentUpload = (e) => {
-    setDocuments([...documents, ...e.target.files]);
+    const files = Array.from(e.target.files);
+    const validFiles = files.filter((file) => file.size <= MAX_FILE_SIZE);
+
+    if (validFiles.length + documents.length <= MAX_FILES && files.some((file) => file.size < MAX_FILE_SIZE)) {
+      setDocuments([...documents, ...validFiles]);
+    }
+    e.target.value = '';
   };
 
   const handleRemoveDocument = (index) => {
@@ -62,13 +84,10 @@ const CreateNewsForm = ({ open, onClose }) => {
 
     try {
       const response = await createNews(formData);
-      newsStore.addNews(response);
-      console.log(response);
-      console.log(newsStore);
 
-      onClose();
+      onClose(response);
     } catch (err) {
-      console.log(err);
+      alert('Не удалось создать новость');
     }
   };
 
@@ -92,19 +111,23 @@ const CreateNewsForm = ({ open, onClose }) => {
             className={styles.inputTitle}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
+            maxLength={MAX_TITLE_LENGTH}
           />
           <textarea
             placeholder="Введите текст новости"
             className={styles.txtAreaContent}
             onChange={(e) => setContent(e.target.value)}
             value={content}
+            wrap="hard"
+            maxLength={MAX_CONTENT_LENGTH}
           ></textarea>
 
           <div className={styles.addLink}>
             <input
               className={styles.inputLink}
               type="text"
-              placeholder="Введите ссылку"
+              placeholder="Введите ссылку (не более 5)"
               value={newLink}
               onChange={(e) => setNewLink(e.target.value)}
             />
@@ -118,8 +141,8 @@ const CreateNewsForm = ({ open, onClose }) => {
               <a href={link} target="_blank" className={styles.link}>
                 {link}
               </a>
-              <button type="button" onClick={() => handleRemoveLink(index)}>
-                Удалить
+              <button type="button" onClick={() => handleRemoveLink(index)} className={styles.btnDeleteLink}>
+                <img src={deleteIcon} alt="Кнопка удаления" className={styles.btnLinkImg} />
               </button>
             </div>
           ))}
@@ -129,6 +152,7 @@ const CreateNewsForm = ({ open, onClose }) => {
             Загрузить фото
             <input className={styles.input} type="file" onChange={handleImageUpload} accept=".png,.jpg" />
           </label>
+          <p className={styles.warning}>Не более 10 фото</p>
           <div className={styles.imagesPreview}>
             {images.map((image, index) => (
               <div key={index} className={styles.imageContainer}>
@@ -151,15 +175,17 @@ const CreateNewsForm = ({ open, onClose }) => {
                 accept=".doc,.docx,.xlsx,.pdf,.ppt,.pptx"
               />
             </label>
+            <p className={styles.warning}>Не более 5 файлов размером не более 20Мб</p>
 
             {documents.map((document, index) => (
-              <div key={index} className={styles.fileContainer}>
-                <a href={URL.createObjectURL(document)} target="_blank">
-                  {document.name}
-                </a>
-                <button type="button" onClick={() => handleRemoveDocument(index)}>
-                  Удалить
-                </button>
+              <div key={index}>
+                <DocumentItem
+                  documentName={document.name}
+                  documentUrl={URL.createObjectURL(document)}
+                  onDelete={() => handleRemoveDocument(index)}
+                  onNews={true}
+                  showDelete={true}
+                ></DocumentItem>
               </div>
             ))}
           </div>

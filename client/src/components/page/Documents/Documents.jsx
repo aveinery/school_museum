@@ -8,6 +8,7 @@ import useCreateDocument from '../../../hooks/useCreateDocument';
 import useDeleteDocument from '../../../hooks/useDeleteDocument';
 import Spinner from '../../UI/Spinner/Spinner';
 import { observer } from 'mobx-react-lite';
+import { MAX_FILE_SIZE } from '../../../utils/consts';
 
 const Documents = observer(() => {
   const { user } = useContext(Context);
@@ -18,11 +19,7 @@ const Documents = observer(() => {
   const { deleting, deleteError, handleDelete } = useDeleteDocument();
 
   if (uploadError) {
-    alert('не удалось загрузить документ');
-  }
-
-  if (deleteError) {
-    return <div>{deleteError}</div>;
+    console.log(uploadError);
   }
 
   return (
@@ -30,6 +27,8 @@ const Documents = observer(() => {
       <div className={styles.container}>
         <h2 className={styles.title}>Документы</h2>
         <div className={styles.documentBox}>
+          {deleteError ? 'Не удалось удалить документ' : null}
+          {uploadError ? 'Не удалось загрузить документ' : null}
           {user.IsAuth ? (
             <form action="" method="" encType="multipart/form-data">
               <label className={styles.documentInput} autoFocus>
@@ -43,6 +42,7 @@ const Documents = observer(() => {
                   accept=".doc,.docx,.xlsx,.pdf,.ppt,.pptx"
                 />
               </label>
+              <p className={styles.warning}>Не более 20Мб</p>
             </form>
           ) : (
             ''
@@ -57,6 +57,7 @@ const Documents = observer(() => {
               documentUrl={document.url}
               onDelete={() => handleDelete(document.id)}
               showDelete={true}
+              onNews={false}
             ></DocumentItem>
           ))}
         </div>

@@ -6,7 +6,6 @@ import locationIcon from '../../../assets/images/location.svg';
 import vkLogo from '../../../assets/images/vk-logo-contacts.svg';
 import communityIcon from '../../../assets/images/community.svg';
 import emailIcon from '../../../assets/images/email.svg';
-import registrationLogo from '../../../assets/images/registration.svg';
 import YMap from '../../UI/YMap/YMap';
 import Modal from '../../UI/Modal/Modal';
 import ContactForm from './ContactForm';
@@ -33,7 +32,9 @@ const Contacts = () => {
           <div className={styles.contactsContainer}>
             <div className={styles.column}>
               <ContactItem title="Адрес" src={locationIcon} alt="Иконка геолокации">
-                <p>141800, Российская Федерация, Московская область, г. Дмитров, улица Школьная, дом 11, корпус 1</p>
+                <address className={styles.address}>
+                  141800, Российская Федерация, Московская область, г. Дмитров, улица Школьная, дом 11, корпус 1
+                </address>
               </ContactItem>
               <ContactItem title="Руководитель музея" src={phoneIcon} alt="Иконка телефона">
                 <p>Шатохина Анна Александровна</p>
@@ -54,7 +55,7 @@ const Contacts = () => {
                 <p>Dmit_mou1@mosreg.ru</p>
               </ContactItem>
               <ContactItem title="Сообщества" src={communityIcon} alt="Иконка сообществ">
-                <a href="https://dmou1.edumsko.ru/" target="_blank">
+                <a href="https://dmou1.edumsko.ru/" target="_blank" className={styles.link}>
                   Официальный сайт школы
                 </a>
                 <a className={styles.vk} href="https://vk.com/public131105419" target="_blank">

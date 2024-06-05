@@ -30,7 +30,7 @@ const useQueryDocuments = () => {
     };
 
     fetchData();
-  }, [documentStore]);
+  }, []);
 
   return { loading, error };
 };

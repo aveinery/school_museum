@@ -9,7 +9,6 @@ const useSendMail = () => {
     setLoading(true);
     setError(null);
     try {
-      console.log(mail);
       await sendMail(mail);
     } catch (err) {
       setError(err.message);

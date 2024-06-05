@@ -1,10 +1,13 @@
 import path from 'path';
 import { __dirname } from '../index.js';
 import { staticPath } from '../index.js';
+import iconv from 'iconv-lite';
 
 export const saveFile = (file) => {
+  const binaryString = file.name;
+  const decodedName = iconv.decode(Buffer.from(binaryString, 'binary'), 'utf-8');
+  file.name = decodedName;
   const name = file.name;
-  console.log(name);
   const filename = `${Date.now()}-${name}`;
   const saveUrl = path.resolve(staticPath, filename);
 

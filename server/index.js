@@ -7,6 +7,7 @@ import errorHandle from './middleware/ErrorHandlingMiddleware.js';
 import fileUpload from 'express-fileupload';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import bodyParser from 'body-parser';
 
 const PORT = process.env.PORT || 5000;
 
@@ -19,6 +20,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(staticPath));
 app.use(fileUpload({}));
+// app.use(bodyParser.json({ type: 'application/json;charset=UTF-8' }));
+// app.use(bodyParser.urlencoded({ extended: true, type: 'application/x-www-form-urlencoded;charset=UTF-8' }));
 app.use('/api', router);
 
 app.use(errorHandle);

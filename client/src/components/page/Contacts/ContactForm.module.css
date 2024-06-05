@@ -26,3 +26,12 @@
 .buttonContacts:focus {
   background-color: var(--blue);
 }
+
+.buttonContacts:disabled {
+  background-color: var(--gray);
+}
+
+.error {
+  text-align: center;
+  margin-bottom: 20px;
+}

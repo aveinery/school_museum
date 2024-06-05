@@ -8,4 +8,3 @@ export const deleteFile = async (url) => {
     if (error) throw error;
   });
 };
-

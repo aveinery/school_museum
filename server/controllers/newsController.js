@@ -25,10 +25,9 @@ class NewsController {
   async create(req, res, next) {
     try {
       const { userId } = req.user;
-      const { title, datePublication, content, links } = req.body;
-      const { files, images } = req.files;
-
-      console.log(req.files);
+      const { title, datePublication } = req.body;
+      const { files, images } = req.files || {};
+      const { content, links } = req.body || {};
 
       const newItem = await News.create({ title, date_publication: datePublication, content, userId });
       const newsId = newItem.dataValues.id;
@@ -38,12 +37,15 @@ class NewsController {
         needPromises.push(linkController.create({ url: link, newsId }));
       }
 
-      for (const file of Array.isArray(files) ? files : [files]) {
-        needPromises.push(fileController.create({ fileUpload: file, newsId }));
+      if (files) {
+        for (const file of Array.isArray(files) ? files : [files]) {
+          needPromises.push(fileController.create({ fileUpload: file, newsId }));
+        }
       }
-
-      for (const image of Array.isArray(images) ? images : [images]) {
-        needPromises.push(imageController.create({ fileUpload: image, newsId }));
+      if (images) {
+        for (const image of Array.isArray(images) ? images : [images]) {
+          needPromises.push(imageController.create({ fileUpload: image, newsId }));
+        }
       }
 
       await Promise.all(needPromises);
@@ -59,11 +61,18 @@ class NewsController {
     }
   }
 
-  async getAll(_, res) {
+  async getAll(req, res, next) {
+    let { limit, page } = req.query;
+    page = page || 1;
+    limit = limit || 3;
+    let offset = page * limit - limit;
     try {
-      const news = await News.findAll({
+      const news = await News.findAndCountAll({
         order: [['id', 'DESC']],
         include: includeScheme,
+        distinct: true,
+        limit,
+        offset,
       });
       return res.json(news);
     } catch (e) {
@@ -100,9 +109,11 @@ class NewsController {
     try {
       const { id } = req.params;
       const { title, content, images = [], files = [], links = [] } = req.body;
-      const { documentFiles = [], imagesFiles = [] } = req.files;
+      console.log(req);
+      const { documentFiles = [], imagesFiles = [] } = req.files || {};
 
-      console.log(images, files, links);
+      console.log(req.files);
+      console.log(images, files, links, imagesFiles, documentFiles);
 
       const remainingImages = JSON.parse(images);
       const remainingFiles = JSON.parse(files);
@@ -126,7 +137,7 @@ class NewsController {
         needPromises.push(Image.destroy({ where: { id } }));
       }
 
-      for (const newImage of imagesFiles) {
+      for (const newImage of Array.isArray(imagesFiles) ? imagesFiles : [imagesFiles]) {
         imageController.create({ fileUpload: newImage, newsId: id });
       }
 
@@ -139,7 +150,7 @@ class NewsController {
         needPromises.push(File.destroy({ where: { id } }));
       }
 
-      for (const newFile of documentFiles) {
+      for (const newFile of Array.isArray(documentFiles) ? documentFiles : [documentFiles]) {
         fileController.create({ fileUpload: newFile, newsId: id });
       }
 
@@ -151,12 +162,12 @@ class NewsController {
         needPromises.push(Link.destroy({ where: { id } }));
       }
 
-      for (const { id, url } of remainingLinks) {
-        if (id) {
-          return;
+      for (const link of remainingLinks) {
+        if (link.id) {
+          continue;
         }
 
-        needPromises.push(Link.create({ url }));
+        needPromises.push(Link.create({ url: link.url, newsId: id }));
       }
 
       await Promise.all(needPromises);

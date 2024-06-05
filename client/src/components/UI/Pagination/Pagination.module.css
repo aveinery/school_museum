@@ -1,0 +1,28 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+  justify-content: flex-end;
+  margin: 0 70px;
+  align-items: center;
+}
+
+.btnPage {
+  padding: 5px;
+  font-size: 20px;
+
+  transition: color 0.3s;
+}
+
+.btnPage:hover {
+  color: var(--dark-blue);
+  cursor: pointer;
+}
+
+.btnPage:focus {
+  border: 1px solid var(--blue);
+}
+
+.pageInfo {
+  padding: 5px;
+}

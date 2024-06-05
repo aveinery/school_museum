@@ -1,7 +1,12 @@
 import { $authHost, $host } from './index';
 
-export const fetchNews = async () => {
-  const { data } = await $host.get('api/news/');
+export const fetchNews = async (page, limit = 3) => {
+  const { data } = await $host.get('api/news/', {
+    params: {
+      page,
+      limit,
+    },
+  });
   return data;
 };
 
@@ -20,7 +25,7 @@ export const createNews = async (news) => {
   return data;
 };
 
-export const updateNews = async (id) => {
-  const { data } = await $authHost.put('api/news/' + id);
+export const updateNews = async (id, news) => {
+  const { data } = await $authHost.put('api/news/' + id, news);
   return data;
 };

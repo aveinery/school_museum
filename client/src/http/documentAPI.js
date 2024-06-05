@@ -6,11 +6,8 @@ export const fetchDocuments = async () => {
 };
 
 export const createDocuments = async (uploadDocument) => {
-  const { data } = await $authHost.post('api/document/', uploadDocument, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  console.log(uploadDocument);
+  const { data } = await $authHost.post('api/document/', uploadDocument);
   return data;
 };
 

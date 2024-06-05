@@ -5,7 +5,7 @@ import iconDelete from '../../../assets/images/delete-icon.svg';
 import { Context } from '../../../main';
 import { observer } from 'mobx-react-lite';
 
-const NewsItem = observer(({ time, src, alt, title, content, open, onDelete }) => {
+const NewsItem = observer(({ time, src, alt, title, content, open, onDelete, onEdit }) => {
   const { user } = useContext(Context);
   return (
     <article className={styles.news}>
@@ -25,7 +25,7 @@ const NewsItem = observer(({ time, src, alt, title, content, open, onDelete }) =
 
         {user.IsAuth ? (
           <>
-            <button className={styles.btnEdit} onClick={() => open('editNews')}>
+            <button className={styles.btnEdit} onClick={() => onEdit('editNews')}>
               <img src={iconEdit} alt="Иконка редактирования" />
             </button>
             <button className={styles.btnDelete} onClick={onDelete}>

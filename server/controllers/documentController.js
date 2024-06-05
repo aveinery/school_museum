@@ -7,13 +7,18 @@ import { saveFile } from '../utils/saveFile.js';
 import imageController from './imageController.js';
 import { staticPath } from '../index.js';
 import { deleteFile } from '../utils/deleteFile.js';
+import iconv from 'iconv-lite';
 
 class DocumentController {
   async create(req, res, next) {
     try {
-      const { userId } = req;
+      const { userId } = req.user;
       const { uploadDocument } = req.files;
-      console.log(uploadDocument);
+
+      const binaryString = uploadDocument.name;
+      const decodedName = iconv.decode(Buffer.from(binaryString, 'binary'), 'utf-8');
+      uploadDocument.name = decodedName;
+
       const { url, name } = saveFile(uploadDocument);
 
       const document = await Document.create({ url, name, userId });

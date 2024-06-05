@@ -6,7 +6,7 @@ const MainSectionHeader = () => {
     <section className={styles.sectionHeader}>
       <div className={styles.container}>
         <h1 className={styles.textHeader}>
-          <p className={styles.firstStroke}>История школы как капля воды</p>
+          <p className={styles.firstStroke}>История школы как капля воды,</p>
           <p className={styles.secondStroke}>отражается в истории родины</p>
         </h1>
       </div>
