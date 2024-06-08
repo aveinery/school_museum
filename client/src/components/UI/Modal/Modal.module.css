@@ -58,3 +58,10 @@
 
   transform: rotate(-45deg);
 }
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    max-width: 100%;
+  }
+}

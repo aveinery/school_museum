@@ -6,6 +6,7 @@ import iconv from 'iconv-lite';
 export const saveFile = (file) => {
   const binaryString = file.name;
   const decodedName = iconv.decode(Buffer.from(binaryString, 'binary'), 'utf-8');
+  console.log(decodedName);
   file.name = decodedName;
   const name = file.name;
   const filename = `${Date.now()}-${name}`;

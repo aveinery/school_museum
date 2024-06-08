@@ -97,7 +97,18 @@ class NewsController {
   async delete(req, res) {
     try {
       const { id } = req.params;
+
+      const images = await Image.findAll({ where: { newsId: id } });
+      const files = await File.findAll({ where: { newsId: id } });
       await News.destroy({ where: { id } });
+
+      for (const { dataValues } of images) {
+        deleteFile(dataValues.url);
+      }
+
+      for (const { dataValues } of files) {
+        deleteFile(dataValues.url);
+      }
 
       return res.json({ message: 'Success' });
     } catch (e) {

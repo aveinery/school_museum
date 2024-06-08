@@ -12,19 +12,11 @@ h6 {
   all: unset;
 
   box-sizing: border-box;
-  /* font-family: 'PT Sans Caption', sans-serif; */
 }
 
 p {
   display: block;
 }
-
-/* W3C standard
-   сейчас только для Firefox */
-/* * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray) var(--light-gray);
-} */
 
 /* для Chrome/Edge/Safari */
 *::-webkit-scrollbar {

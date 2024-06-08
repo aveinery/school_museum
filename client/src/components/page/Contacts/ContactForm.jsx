@@ -48,7 +48,7 @@ const ContactForm = ({ onClose }) => {
         onClose();
       }
     } catch (err) {
-      console.error('Ошибка при отправке формы:', err);
+      console.error(err);
     }
   };
 

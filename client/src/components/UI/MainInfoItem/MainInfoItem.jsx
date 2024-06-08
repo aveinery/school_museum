@@ -6,7 +6,7 @@ const MainInfoItem = ({ src, alt, children }) => {
     <div className={styles.infoItem}>
       <img className={styles.infoImg} src={src} alt={alt} />
       <div className={styles.verticalLine}></div>
-      <div className={styles.infoDecsription}>{children}</div>
+      <div className={styles.infoDescription}>{children}</div>
     </div>
   );
 };

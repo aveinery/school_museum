@@ -8,7 +8,6 @@ const useDeleteNews = () => {
   const [deleteError, setDeleteError] = useState(null);
 
   const handleDelete = async (id) => {
-    console.log(id);
     setDeleting(true);
     setDeleteError(null);
     try {

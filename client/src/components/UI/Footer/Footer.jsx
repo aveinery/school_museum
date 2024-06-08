@@ -24,11 +24,11 @@ const Footer = observer(() => {
             Народный музей истории школы им. А.Ф. Тягачева
           </p>
           <p>
-            <a href="tel:+78121111111" className={styles.phone}>
-              (812) 123-45-67
+            <a href="tel:+79852507773" className={styles.phone}>
+              +7 (985) 250-77-73
             </a>
           </p>
-          <p>Dmit_mou1@mosreg</p>
+          <p>muzejtagaceva@gmail.ru</p>
           <address>
             141800, Российская Федерация, Московская область, г. Дмитров, улица Школьная, дом 11, корпус 1
           </address>

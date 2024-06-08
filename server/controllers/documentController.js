@@ -15,10 +15,6 @@ class DocumentController {
       const { userId } = req.user;
       const { uploadDocument } = req.files;
 
-      const binaryString = uploadDocument.name;
-      const decodedName = iconv.decode(Buffer.from(binaryString, 'binary'), 'utf-8');
-      uploadDocument.name = decodedName;
-
       const { url, name } = saveFile(uploadDocument);
 
       const document = await Document.create({ url, name, userId });

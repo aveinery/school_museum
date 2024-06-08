@@ -5,6 +5,15 @@
   --dark-blue: #2261a6;
   --gray: #9d9d9d;
   --light-gray: #f2f2f2;
+
+  --mobileS: 320px;
+  --mobileM: 375px;
+  --mobileL: 425px;
+  --tabletS: 576px;
+  --tablet-breakpoint: 768px;
+  --laptop: 1024px;
+  --laptopL: 1440px;
+  --desktop-breakpoint: 2560px;
 }
 
 body {

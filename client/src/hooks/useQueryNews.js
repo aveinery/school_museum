@@ -1,8 +1,6 @@
-import React from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { fetchNews } from '../http/newsAPI';
 import { Context } from '../main';
-import { observer } from 'mobx-react-lite';
 
 const useQueryNews = (maxLength) => {
   const { newsStore } = useContext(Context);

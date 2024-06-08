@@ -17,7 +17,7 @@
 }
 
 .documentBox {
-  height: 500px;
+  height: 70vh;
   padding: 10px;
   background-color: white;
   border-radius: 4px;
@@ -47,24 +47,51 @@
 }
 
 .input {
-  position: absolute;
-
-  height: 0.1rem;
-  width: 0.1rem;
-  overflow: hidden;
-
-  white-space: nowrap;
-
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  display: none;
 }
 
-.input:focus {
-  border: 1px solid var(--blue);
+.documentInput:focus {
+  border: 2px solid var(--dark-blue);
 }
 
 .warning {
   font-size: 13px;
   color: var(--blue);
   margin-bottom: 10px;
+}
+
+@media (min-width: 2560px) {
+  .warning {
+    font-size: 15px;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+
+  .documentInput {
+    font-size: 21px;
+    padding: 15px;
+  }
+
+  .documentBox {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 25px;
+  }
+
+  .documentInput {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .documentInput {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 20px;
+  }
 }

@@ -141,6 +141,10 @@
   cursor: pointer;
 }
 
+.documentInput:focus {
+  border: 2px solid var(--dark-blue);
+}
+
 .warning {
   margin-top: 0px;
   padding-top: 0px;
@@ -148,4 +152,35 @@
   font-size: 13px;
 
   margin-bottom: 10px;
+}
+
+@media (min-width: 2560px) {
+  .inputTitle {
+    font-size: 25px;
+  }
+
+  .txtAreaContent {
+    font-size: 20px;
+  }
+
+  .documentInput {
+    font-size: 21px;
+    padding: 15px;
+  }
+
+  .inputLink {
+    font-size: 20px;
+  }
+
+  .link {
+    font-size: 20px;
+  }
+
+  .warning {
+    font-size: 16px;
+  }
+
+  .buttonCreate {
+    font-size: 20px;
+  }
 }

@@ -20,7 +20,7 @@ const DocumentItem = observer(({ documentName, documentUrl, onDelete, showDelete
 
       {user.IsAuth && showDelete ? (
         <button className={styles.btnDelete} onClick={onDelete}>
-          <img src={deleteIcon} alt="Иконка удаления" />
+          <img src={deleteIcon} alt="Иконка удаления" className={styles.imgDelete} />
         </button>
       ) : (
         ''

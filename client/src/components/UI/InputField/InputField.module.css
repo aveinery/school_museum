@@ -21,3 +21,19 @@
   font-size: 13px;
   color: brown;
 }
+
+@media (min-width: 2560px) {
+  .inputField {
+    font-size: 20px;
+  }
+
+  .error {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .inputField {
+    font-size: 14px;
+  }
+}

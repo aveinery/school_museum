@@ -38,21 +38,21 @@ const Contacts = () => {
               </ContactItem>
               <ContactItem title="Руководитель музея" src={phoneIcon} alt="Иконка телефона">
                 <p>Шатохина Анна Александровна</p>
-                <a href="tel:+78121111111" className={styles.phone}>
-                  (812) 123-45-67
+                <a href="tel:+79852507773" className={styles.phone}>
+                  +7 (985) 250-77-73
                 </a>
               </ContactItem>
               <ContactItem title="Директор школы" src={phoneIcon} alt="Иконка телефона">
                 <p>Чернышова Татьяна Алексеевна</p>
-                <a href="tel:+78121111111" className={styles.phone}>
-                  (812) 123-45-67
+                <a href="tel:+74962235855" className={styles.phone}>
+                  +7 (496) 223-58-55
                 </a>
               </ContactItem>
             </div>
 
             <div className={styles.column}>
               <ContactItem title="Почта" src={emailIcon} alt="Иконка почты">
-                <p>Dmit_mou1@mosreg.ru</p>
+                <p>muzejtagaceva@gmail.ru</p>
               </ContactItem>
               <ContactItem title="Сообщества" src={communityIcon} alt="Иконка сообществ">
                 <a href="https://dmou1.edumsko.ru/" target="_blank" className={styles.link}>

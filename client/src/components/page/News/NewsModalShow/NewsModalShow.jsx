@@ -28,9 +28,7 @@ const NewsModalShow = ({ open, onClose, idNews }) => {
           {formatDate(news?.date_publication)}
         </time>
         <h2 className={styles.titleNews}>{news?.title}</h2>
-        <textarea className={styles.contentNews} readOnly wrap="hard" value={news?.content}>
-          {/* {news?.content} */}
-        </textarea>
+        <p className={styles.contentNews}>{news?.content}</p>
 
         {news?.links?.length > 0 ? <hr className={styles.horizontalLine}></hr> : null}
         {news?.links?.length > 0 ? <h3 className={styles.titleDescription}>Ссылки</h3> : null}

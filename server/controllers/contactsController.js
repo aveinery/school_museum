@@ -12,14 +12,14 @@ class ContactsController {
         port: 465,
         secure: true,
         auth: {
-          user: 'nastya_kotova_2004@mail.ru',
-          pass: 'VnA5wNJwu8LnEHmqLr57',
+          user: process.env.NODEMAILER_USER,
+          pass: process.env.NODEMAILER_PASSWORD,
         },
       });
 
       await transporter.sendMail({
-        from: `nastya_kotova_2004@mail.ru`,
-        to: 'nastya_kotova_2004@mail.ru',
+        from: `${process.env.NODEMAILER_USER}`,
+        to: `${process.env.NODEMAILER_ADDRESSE}`,
         replyTo: `${email}`,
         subject: 'Заявка на экскурсию',
         text: `${fullname} ${phone} ${date} ${email}`,

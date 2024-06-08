@@ -13,12 +13,12 @@ const Modal = ({ children, open, onClose }) => {
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-  }, []);
+  }, [onClose]);
 
   return createPortal(
     <div className={styles.modal} onClick={onClose}>
       <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.close} onClick={onClose} />
+        <button className={styles.close} onClick={onClose}></button>
         {children}
       </div>
     </div>,

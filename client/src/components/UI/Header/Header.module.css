@@ -1,5 +1,5 @@
 .header {
-  padding: 5px 0 5px 0;
+  padding: 5px 0;
   width: 100%;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.2);
   background-color: white;
@@ -74,23 +74,6 @@
   cursor: pointer;
 }
 
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: #000;
-  margin: 4px;
-}
-
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-  }
-
-  .burger {
-    display: flex;
-  }
-}
-
 .burgerLinks {
   list-style-type: none;
 }
@@ -133,4 +116,75 @@
 
 .overlay.active {
   display: block;
+}
+
+@media (min-width: 2560px) {
+  .logoUp {
+    font-size: 25px;
+  }
+
+  .logoDown {
+    font-size: 21px;
+  }
+
+  .navLinks {
+    font-size: 21px;
+  }
+  .header {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .logoUp {
+    font-size: 16px;
+  }
+
+  .logoDown {
+    font-size: 13px;
+  }
+
+  .navLinks {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .header {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 576px) {
+}
+
+@media (max-width: 425px) {
+  .logoUp {
+    font-size: 14px;
+  }
+
+  .logoDown {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .logoUp {
+    font-size: 12px;
+  }
+
+  .logoDown {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
 }

@@ -6,7 +6,7 @@ import DocumentsPage from './pages/DocumentsPage';
 import ContactsPage from './pages/ContactsPage';
 import NewsPage from './pages/NewsPage';
 import VirtualGidPage from './pages/VirtualGidPage';
-import WithLayout from '../WithLayout';
+import WithLayout from './components/WithLayout';
 
 export const authRoutes = [
   {

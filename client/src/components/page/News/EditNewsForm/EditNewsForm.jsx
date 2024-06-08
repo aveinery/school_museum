@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './EditNewsForm.module.css';
 import Modal from '../../../UI/Modal/Modal';
 import { useShowOneNews } from '../../../../hooks/useShowOneNews';
@@ -29,6 +29,18 @@ const EditNewsForm = ({ open, onClose, idNews }) => {
   const [serverImages, setServerImages] = useState([]);
   const [documents, setDocuments] = useState([]);
   const [serverDocuments, setServerDocuments] = useState([]);
+
+  const fileInputRef = useRef(null);
+  const imageInputRef = useRef(null);
+
+  const createHandleKeyDown = (ref) => (event) => {
+    if (event.key === 'Enter' && ref.current) {
+      ref.current.click();
+    }
+  };
+
+  const handleKeyDownImg = createHandleKeyDown(imageInputRef);
+  const handleKeyDownFile = createHandleKeyDown(fileInputRef);
 
   useEffect(() => {
     if (news) {
@@ -193,10 +205,16 @@ const EditNewsForm = ({ open, onClose, idNews }) => {
             </div>
           ))}
 
-          <label className={styles.documentInput} autoFocus>
+          <label className={styles.documentInput} autoFocus tabIndex="0" onKeyDown={handleKeyDownImg}>
             <img className={styles.inputImg} src={documentIcon} alt="Иконка файла"></img>
             Загрузить фото
-            <input className={styles.input} type="file" onChange={handleImageUpload} accept=".png,.jpg" />
+            <input
+              className={styles.input}
+              type="file"
+              onChange={handleImageUpload}
+              accept=".png,.jpg"
+              ref={imageInputRef}
+            />
           </label>
           <p className={styles.warning}>Не более 10 фото</p>
           <div className={styles.imagesPreview}>
@@ -225,14 +243,15 @@ const EditNewsForm = ({ open, onClose, idNews }) => {
           </div>
 
           <div>
-            <label className={styles.documentInput} autoFocus>
+            <label className={styles.documentInput} autoFocus tabIndex="0" onKeyDown={handleKeyDownFile}>
               <img className={styles.inputImg} src={documentIcon} alt="Иконка файла"></img>
-              Загрузить документ
+              Загрузить файл
               <input
                 className={styles.input}
                 type="file"
                 onChange={handleDocumentUpload}
                 accept=".doc,.docx,.xlsx,.pdf,.ppt,.pptx"
+                ref={fileInputRef}
               />
             </label>
             <p className={styles.warning}>Не более 5 файлов размером не более 20Мб</p>
@@ -261,7 +280,7 @@ const EditNewsForm = ({ open, onClose, idNews }) => {
           </div>
 
           <button type="submit" className={styles.buttonEdit}>
-            Отправить
+            Изменить
           </button>
         </form>
       </div>

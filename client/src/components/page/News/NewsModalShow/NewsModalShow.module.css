@@ -18,9 +18,9 @@
 }
 
 .contentNews {
-  resize: none;
-  height: 200px;
   font-size: 16px;
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .horizontalLine {
@@ -67,4 +67,18 @@
 }
 .photo {
   width: 100%;
+}
+
+@media (min-width: 2560px) {
+  .contentNews {
+    font-size: 20px;
+  }
+
+  .titleDescription {
+    font-size: 20px;
+  }
+
+  .newsLink {
+    font-size: 20px;
+  }
 }

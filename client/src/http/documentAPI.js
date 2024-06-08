@@ -6,7 +6,6 @@ export const fetchDocuments = async () => {
 };
 
 export const createDocuments = async (uploadDocument) => {
-  console.log(uploadDocument);
   const { data } = await $authHost.post('api/document/', uploadDocument);
   return data;
 };

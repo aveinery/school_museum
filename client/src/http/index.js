@@ -17,7 +17,6 @@ const authInterceptor = (config) => {
 $authHost.interceptors.request.use(authInterceptor);
 
 $authHost.interceptors.response.use(authInterceptor, async (error, options) => {
-  console.log('test - // inctercepot', { error, options });
   if (error.response.status === 401 && localStorage.getItem('refreshToken')) {
     await refreshToken();
 

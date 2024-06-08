@@ -107,6 +107,10 @@
   position: absolute;
 }
 
+.btnDeleteImg:focus {
+  background-color: var(--blue);
+}
+
 .input {
   display: none;
 }
@@ -129,6 +133,10 @@
   cursor: pointer;
 }
 
+.documentInput:focus {
+  border: 2px solid var(--dark-blue);
+}
+
 .buttonEdit {
   background-color: var(--dark-blue);
   color: white;
@@ -147,4 +155,35 @@
   margin-bottom: 10px;
   color: var(--blue);
   font-size: 13px;
+}
+
+@media (min-width: 2560px) {
+  .inputTitle {
+    font-size: 25px;
+  }
+
+  .txtAreaContent {
+    font-size: 20px;
+  }
+
+  .documentInput {
+    font-size: 21px;
+    padding: 15px;
+  }
+
+  .inputLink {
+    font-size: 20px;
+  }
+
+  .link {
+    font-size: 20px;
+  }
+
+  .warning {
+    font-size: 16px;
+  }
+
+  .buttonEdit {
+    font-size: 20px;
+  }
 }

@@ -26,3 +26,28 @@
 .pageInfo {
   padding: 5px;
 }
+
+@media (min-width: 2560px) {
+  .page {
+    font-size: 20px;
+  }
+
+  .btnPage {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .page {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .page {
+    font-size: 14px;
+  }
+
+  .btnPage {
+    font-size: 14px;
+  }
+}

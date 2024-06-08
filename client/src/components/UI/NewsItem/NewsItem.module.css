@@ -118,3 +118,185 @@
   background-color: var(--dark-blue);
   color: white;
 }
+
+@media (min-width: 1920px) {
+  .imgNews {
+    width: 500px;
+  }
+
+  .contentNews {
+    font-size: 20px;
+  }
+
+  .dateNews {
+    font-size: 16px;
+  }
+  .showNews {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .imgNews {
+    width: 600px;
+  }
+
+  .contentNews {
+    font-size: 20px;
+  }
+
+  .dateNews {
+    font-size: 16px;
+  }
+  .showNews {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .imgNews {
+    width: 60%;
+  }
+
+  .titleNews {
+    font-size: 20px;
+  }
+
+  .contentNews {
+    font-size: 16px;
+  }
+
+  .showNews {
+    font-size: 16px;
+  }
+
+  .dateNews {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsContainer {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    margin: 0 70px;
+  }
+
+  .imgNews {
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .news:nth-child(2n) .imgNews {
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .news:nth-child(2n) .newsContainer {
+    flex-direction: column;
+  }
+
+  .titleNews {
+    font-size: 20px;
+  }
+
+  .contentNews {
+    font-size: 16px;
+  }
+
+  .showNews {
+    font-size: 16px;
+  }
+
+  .dateNews {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .newsContainer {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    margin: 0 10px;
+  }
+
+  .imgNews {
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .news:nth-child(2n) .imgNews {
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .news:nth-child(2n) .newsContainer {
+    flex-direction: column;
+  }
+
+  .titleNews {
+    font-size: 20px;
+  }
+
+  .contentNews {
+    font-size: 16px;
+  }
+
+  .showNews {
+    font-size: 16px;
+  }
+
+  .dateNews {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 375px) {
+  .newsContainer {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    margin: 0 10px;
+  }
+
+  .imgNews {
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .news:nth-child(2n) .imgNews {
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .news:nth-child(2n) .newsContainer {
+    flex-direction: column;
+  }
+
+  .titleNews {
+    font-size: 16px;
+  }
+
+  .contentNews {
+    font-size: 13px;
+  }
+
+  .showNews {
+    font-size: 13px;
+  }
+
+  .dateNews {
+    font-size: 13px;
+  }
+}

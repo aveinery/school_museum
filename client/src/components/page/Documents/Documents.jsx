@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import styles from './Documents.module.css';
 import DocumentItem from '../../UI/DocumentItem/DocumentItem';
 import { Context } from '../../../main';
@@ -8,7 +8,6 @@ import useCreateDocument from '../../../hooks/useCreateDocument';
 import useDeleteDocument from '../../../hooks/useDeleteDocument';
 import Spinner from '../../UI/Spinner/Spinner';
 import { observer } from 'mobx-react-lite';
-import { MAX_FILE_SIZE } from '../../../utils/consts';
 
 const Documents = observer(() => {
   const { user } = useContext(Context);
@@ -17,10 +16,13 @@ const Documents = observer(() => {
   const { loading, error } = useQueryDocuments();
   const { uploading, uploadError, handleFileChange } = useCreateDocument();
   const { deleting, deleteError, handleDelete } = useDeleteDocument();
+  const fileInputRef = useRef(null);
 
-  if (uploadError) {
-    console.log(uploadError);
-  }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
   return (
     <section className={styles.documentSection}>
@@ -31,10 +33,11 @@ const Documents = observer(() => {
           {uploadError ? 'Не удалось загрузить документ' : null}
           {user.IsAuth ? (
             <form action="" method="" encType="multipart/form-data">
-              <label className={styles.documentInput} autoFocus>
+              <label className={styles.documentInput} autoFocus tabIndex="0" onKeyDown={handleKeyDown}>
                 <img className={styles.inputImg} src={documentIcon} alt="Иконка файла"></img>
                 {uploading ? 'Документ загружается...' : 'Выберите документ'}
                 <input
+                  ref={fileInputRef}
                   className={styles.input}
                   type="file"
                   onChange={handleFileChange}

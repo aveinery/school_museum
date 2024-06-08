@@ -21,3 +21,79 @@
 .contactImg {
   align-self: flex-start;
 }
+
+@media (min-width: 1920px) {
+  .contactItem {
+    margin-bottom: 100px;
+  }
+
+  .contactHeader {
+    font-size: 21px;
+  }
+
+  .itemDescription {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .contactItem {
+    margin-bottom: 150px;
+  }
+
+  .contactHeader {
+    font-size: 25px;
+  }
+
+  .itemDescription {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactItem {
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contactItem {
+    width: 300px;
+    height: auto;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 425px) {
+  .contactItem {
+    width: 250px;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .contactHeader {
+    font-size: 17px;
+  }
+
+  .itemDescription {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .contactItem {
+    width: 250px;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .contactHeader {
+    font-size: 17px;
+  }
+
+  .itemDescription {
+    font-size: 14px;
+  }
+}

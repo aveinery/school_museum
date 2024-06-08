@@ -20,8 +20,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(staticPath));
 app.use(fileUpload({}));
-// app.use(bodyParser.json({ type: 'application/json;charset=UTF-8' }));
-// app.use(bodyParser.urlencoded({ extended: true, type: 'application/x-www-form-urlencoded;charset=UTF-8' }));
 app.use('/api', router);
 
 app.use(errorHandle);

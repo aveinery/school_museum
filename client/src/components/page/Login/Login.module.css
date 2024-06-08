@@ -22,7 +22,7 @@
 .loginTitle {
   color: white;
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .loginInputs {
@@ -70,5 +70,91 @@
 }
 
 .errorMessage {
-  margin: 30px 10px 0;
+  margin: 30px 30px 0 30px;
+  color: var(--dark-blue);
+  font-size: 16px;
+}
+
+.error {
+  margin-left: 30px;
+  color: white;
+  font-size: 13px;
+}
+
+@media (min-width: 2560px) {
+  .loginForm {
+    width: 30%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .loginForm {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .loginForm {
+    width: 70%;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginForm {
+    width: 85%;
+  }
+}
+
+@media (max-width: 425px) {
+  .loginForm {
+    width: 85%;
+  }
+
+  .loginTitle {
+    font-size: 21px;
+  }
+
+  .inputLabel {
+    font-size: 16px;
+  }
+
+  .btnLogin {
+    font-size: 16px;
+  }
+
+  .loginInput {
+    font-size: 16px;
+  }
+
+  .errorMessage {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .loginForm {
+    width: 90%;
+  }
+
+  .loginTitle {
+    font-size: 21px;
+  }
+
+  .inputLabel {
+    font-size: 16px;
+  }
+
+  .btnLogin {
+    font-size: 16px;
+  }
+
+  .loginInput {
+    font-size: 16px;
+  }
+
+  .errorMessage {
+    font-size: 13px;
+    margin-top: 10px;
+  }
 }

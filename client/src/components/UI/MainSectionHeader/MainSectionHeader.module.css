@@ -4,6 +4,7 @@
   background-image: url('../../../assets/images/background-1.webp');
   background-repeat: no-repeat;
   background-size: 100%;
+  background-color: var(--blue);
 }
 
 .container {
@@ -23,4 +24,92 @@
 
 .secondStroke {
   text-align: end;
+}
+
+@media (min-width: 2560px) {
+  .textHeader {
+    font-size: 50px;
+  }
+
+  .sectionHeader {
+    padding: 150px 0;
+  }
+
+  .container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .sectionHeader {
+    padding: 150px 0;
+  }
+
+  .container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .textHeader {
+    font-size: 45px;
+  }
+
+  .sectionHeader {
+    padding: 150px 0;
+  }
+
+  .container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .textHeader {
+    font-size: 30px;
+  }
+
+  .sectionHeader {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .textHeader {
+    font-size: 27px;
+  }
+
+  .sectionHeader {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .textHeader {
+    font-size: 25px;
+  }
+
+  .sectionHeader {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .textHeader {
+    font-size: 20px;
+  }
+
+  .sectionHeader {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .textHeader {
+    font-size: 20px;
+  }
+
+  .sectionHeader {
+    padding: 40px 0;
+  }
 }

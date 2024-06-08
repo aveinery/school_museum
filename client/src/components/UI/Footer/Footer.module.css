@@ -74,5 +74,66 @@ footer {
   width: 100%;
 }
 
-@media screen {
+@media (min-width: 2560px) {
+  .footerColumn {
+    font-size: 16px;
+  }
+
+  .contacts {
+    font-size: 20px;
+  }
+
+  .communitiesText {
+    font-size: 20px;
+  }
+  .exitBtn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .communities {
+    align-items: start;
+  }
+
+  .contacts {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footerColumn {
+    font-size: 12px;
+  }
+
+  .communities {
+    align-items: start;
+  }
+
+  .contacts {
+    padding: 20px 0;
+    font-size: 14px;
+  }
+
+  .communitiesText {
+    font-size: 14px;
+  }
 }
