@@ -52,7 +52,7 @@ const Contacts = () => {
 
             <div className={styles.column}>
               <ContactItem title="Почта" src={emailIcon} alt="Иконка почты">
-                <p>muzejtagaceva@gmail.ru</p>
+                <p>muzejtagaceva@gmail.com</p>
               </ContactItem>
               <ContactItem title="Сообщества" src={communityIcon} alt="Иконка сообществ">
                 <a href="https://dmou1.edumsko.ru/" target="_blank" className={styles.link}>

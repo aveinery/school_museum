@@ -28,7 +28,7 @@ const Footer = observer(() => {
               +7 (985) 250-77-73
             </a>
           </p>
-          <p>muzejtagaceva@gmail.ru</p>
+          <p>muzejtagaceva@gmail.com</p>
           <address>
             141800, Российская Федерация, Московская область, г. Дмитров, улица Школьная, дом 11, корпус 1
           </address>
