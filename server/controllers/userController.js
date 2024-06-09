@@ -1,4 +1,4 @@
-import ApiError from '../error/apiError.js';
+import ApiError from '../error/ApiError.js';
 import { User } from '../models/models.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';

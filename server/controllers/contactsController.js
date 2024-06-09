@@ -1,5 +1,5 @@
 import SendmailTransport from 'nodemailer/lib/sendmail-transport/index.js';
-import ApiError from '../error/apiError.js';
+import ApiError from '../error/ApiError.js';
 import nodemailer from 'nodemailer';
 
 class ContactsController {

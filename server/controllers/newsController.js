@@ -2,7 +2,7 @@ import { File, Image, Link, News } from '../models/models.js';
 import linkController from './linkController.js';
 import fileController from './fileController.js';
 import imageController from './imageController.js';
-import ApiError from '../error/apiError.js';
+import ApiError from '../error/ApiError.js';
 import fileUpload from 'express-fileupload';
 import { deleteFile } from '../utils/deleteFile.js';
 

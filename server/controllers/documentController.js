@@ -1,6 +1,6 @@
 import path from 'path';
 import { unlink } from 'fs';
-import ApiError from '../error/apiError.js';
+import ApiError from '../error/ApiError.js';
 import { Document } from '../models/models.js';
 import { __dirname } from '../index.js';
 import { saveFile } from '../utils/saveFile.js';
