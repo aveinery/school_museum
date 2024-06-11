@@ -11,7 +11,7 @@ const DocumentItem = observer(({ documentName, documentUrl, onDelete, showDelete
     <div className={styles.item}>
       <a
         className={styles.btnDocument}
-        href={onNews ? documentUrl : import.meta.env.VITE_REACT_APP_API_URL_FILES + documentUrl}
+        href={onNews ? documentUrl : import.meta.env.VITE_REACT_APP_API_URL_FILE + documentUrl}
         target="_blank"
       >
         <img className={styles.btnImg} src={fileIcon} alt="Иконка файла" />
