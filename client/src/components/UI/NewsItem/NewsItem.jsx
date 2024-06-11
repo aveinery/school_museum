@@ -36,7 +36,7 @@ const NewsItem = observer(({ time, src, alt, title, content, open, onDelete, onE
           ''
         )}
         {src === null ? null : (
-          <img className={styles.imgNews} src={import.meta.env.VITE_REACT_APP_API_URL + src} alt={alt} />
+          <img className={styles.imgNews} src={import.meta.env.VITE_REACT_APP_API_URL_FILE + src} alt={alt} />
         )}
       </div>
       <hr className={styles.horizontalLine}></hr>
