@@ -7,7 +7,6 @@ import errorHandle from './middleware/ErrorHandlingMiddleware.js';
 import fileUpload from 'express-fileupload';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import bodyParser from 'body-parser';
 
 const PORT = process.env.PORT || 5000;
 
