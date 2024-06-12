@@ -44,7 +44,7 @@ const NewsModalShow = ({ open, onClose, idNews }) => {
         <div className={styles.photos}>
           {news?.images?.map((image) => (
             <a
-              href={import.meta.env.VITE_REACT_APP_API_URL + image.url}
+              href={import.meta.env.VITE_REACT_APP_API_URL_FILE + image.url}
               target="_blank"
               className={styles.newsPhoto}
               key={image.id}
