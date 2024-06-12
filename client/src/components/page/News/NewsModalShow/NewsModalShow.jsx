@@ -49,7 +49,7 @@ const NewsModalShow = ({ open, onClose, idNews }) => {
               className={styles.newsPhoto}
               key={image.id}
             >
-              <img src={import.meta.env.VITE_REACT_APP_API_URL + image.url} className={styles.photo}></img>
+              <img src={import.meta.env.VITE_REACT_APP_API_URL_FILE + image.url} className={styles.photo}></img>
             </a>
           ))}
         </div>

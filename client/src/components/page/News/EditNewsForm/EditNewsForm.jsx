@@ -221,7 +221,7 @@ const EditNewsForm = ({ open, onClose, idNews }) => {
             {serverImages.map((image) => (
               <div key={image.id} className={styles.imageContainer}>
                 <img
-                  src={import.meta.env.VITE_REACT_APP_API_URL + image.url}
+                  src={import.meta.env.VITE_REACT_APP_API_URL_FILE + image.url}
                   alt="Превью фото"
                   className={styles.imagePreview}
                 />
